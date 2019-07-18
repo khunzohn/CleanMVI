@@ -13,11 +13,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Handler().postDelayed(
-            {
-                if (isDestroyed) return@postDelayed
-                ProductListActivity.start(this)
-            },
-            1500
+                {
+                    if (isDestroyed) return@postDelayed
+                    ProductListActivity.start(this)
+                    finish()
+                },
+                1500
         )
     }
 }

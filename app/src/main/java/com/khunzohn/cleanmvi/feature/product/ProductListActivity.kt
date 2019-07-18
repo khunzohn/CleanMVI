@@ -3,6 +3,7 @@ package com.khunzohn.cleanmvi.feature.product
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hannesdorfmann.mosby3.mvi.MviActivity
 import com.khunzohn.cleanmvi.R
@@ -79,6 +80,13 @@ class ProductListActivity : MviActivity<ProductListView, ProductListPresenter>()
     }
 
     override fun render(viewState: ProductListViewState) {
+
+        viewState.favouriteError?.let {
+            it.localizedMessage?.run {
+                Toast.makeText(this@ProductListActivity, this, Toast.LENGTH_SHORT).show()
+            }
+        }
+
         controller.setData(viewState)
     }
 }

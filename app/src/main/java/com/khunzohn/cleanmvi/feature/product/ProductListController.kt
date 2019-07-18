@@ -80,6 +80,11 @@ class ProductListController constructor(
             }
         }
 
+        sectionTitle {
+            id("IPhones")
+            sectionTitle(context.getString(R.string.iphone_section_title))
+        }
+
         if (data.loadingIPhones) {
             if (data.iPhones.isEmpty()) {
                 loading {
@@ -96,7 +101,7 @@ class ProductListController constructor(
                 error {
                     id("Load iPhones Error")
                     retryAction { retryFetchIPhonesSubject.onNext(Any()) }
-                    error(data.loadIPhonesError?.localizedMessage ?: "")
+                    errorMessage(data.loadIPhonesError?.localizedMessage ?: "")
                 }
             } else {
                 horizontalError {

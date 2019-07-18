@@ -63,10 +63,11 @@
             android:layout_marginTop="@dimen/small_layout_padding"
             android:layout_toStartOf="@+id/ivFavourite"
             android:ellipsize="marquee"
+            android:singleLine="true"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:text="iPhone Xs" />
+            tools:text="iPhone Xs is the best option available" />
 
         <ImageView
             android:id="@+id/ivFavourite"
@@ -96,15 +97,13 @@
         android:id="@+id/tvPrice"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginStart="@dimen/small_layout_padding"
+        android:layout_marginStart="@dimen/normal_layout_padding"
         android:layout_marginTop="@dimen/small_layout_padding"
         android:background="@color/colorAccent"
         android:drawableStart="@drawable/ic_usd_24dp"
         android:gravity="center_vertical"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:visibility="gone"
         tools:ignore="MissingPrefix"
-        tools:text="5,444"
-        tools:visibility="visible" />
+        tools:text="5,444" />
 </LinearLayout>

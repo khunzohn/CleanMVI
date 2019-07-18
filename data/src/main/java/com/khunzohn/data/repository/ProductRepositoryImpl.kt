@@ -24,7 +24,12 @@ class ProductRepositoryImpl constructor(
     }
 
     override fun toggleFavourite(mac: Product.Mac): Single<Any> {
-        return Single.fromCallable {
+        val favouriteResult = if (mac.favourite) {
+            productRemote.unFavouriteMac(mac.id)
+        } else {
+            productRemote.favouriteMac(mac.id)
+        }
+        return favouriteResult.doOnSuccess {
             macCache.toggleFavourite(mac)
         }
     }
@@ -39,7 +44,12 @@ class ProductRepositoryImpl constructor(
     }
 
     override fun toggleFavourite(iPhone: Product.IPhone): Single<Any> {
-        return Single.fromCallable {
+        val favouriteResult = if (iPhone.favourite) {
+            productRemote.unFavouriteIPhone(iPhone.id)
+        } else {
+            productRemote.favouriteIPhone(iPhone.id)
+        }
+        return favouriteResult.doOnSuccess {
             iPhoneCache.toggleFavourite(iPhone)
         }
     }

@@ -25,7 +25,7 @@ class GsonProductService constructor(
 
         return Single.fromCallable {
             if (context.isNetworkConnected()) {
-                val macsJson = getJsonString(R.raw.iphones)
+                val macsJson = getJsonString(R.raw.macs)
                 gson.fromJson<List<MacData>>(macsJson, macListType)
             } else {
                 throw Throwable("Please Check your network")
@@ -38,7 +38,7 @@ class GsonProductService constructor(
 
         return Single.fromCallable {
             if (context.isNetworkConnected()) {
-                val iPhonesJson = getJsonString(R.raw.macs)
+                val iPhonesJson = getJsonString(R.raw.iphones)
                 gson.fromJson<List<IPhoneData>>(iPhonesJson, iPhoneListType)
             } else {
                 throw Throwable("Please Check your network")

@@ -6,6 +6,7 @@ import com.khunzohn.domain.model.Product
 import com.khunzohn.domain.repository.ProductRepository
 import com.khunzohn.domain.viewstate.product.ProductListPartialState
 import io.reactivex.Observable
+import java.util.concurrent.TimeUnit
 
 class ProductListInteractor constructor(
     private val productRepository: ProductRepository,
@@ -66,7 +67,13 @@ class ProductListInteractor constructor(
             .toObservable()
             .map { ProductListPartialState.FavouriteUpdated }
             .cast(ProductListPartialState::class.java)
-            .onErrorReturn { ProductListPartialState.UpdateFavouriteError(it) }
+            .onErrorResumeNext { error: Throwable ->
+                // Error can be dismissed at view side without being notified to interactor (toast, dialog,etc ...).
+                // So have to simulate a reset mechanism to not show the error again on screen re-entering
+                Observable.just(ProductListPartialState.UpdateFavouriteError(null)) //reset error after 200 millis
+                    .delay(200, TimeUnit.MILLISECONDS)
+                    .startWith(ProductListPartialState.UpdateFavouriteError(error)) //emit error
+            }
             .subscribeOn(backgroundThread.getScheduler())
             .observeOn(mainThread.getScheduler())
     }

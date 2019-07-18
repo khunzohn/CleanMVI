@@ -1,0 +1,56 @@
+package com.khunzohn.data.mapper
+
+import com.khunzohn.data.model.data.mac.MacData
+import com.khunzohn.data.model.entity.MacEntity
+import com.khunzohn.domain.model.Product
+
+class MacMapper {
+
+    fun dataToDomain(macDataList: List<MacData>): List<Product.Mac> {
+        return macDataList.map {
+            Product.Mac(
+                id = it.id ?: "",
+                name = it.name ?: "",
+                favourite = it.favourite ?: false,
+                shortDescription = it.shortDescription ?: "",
+                description = it.description ?: "",
+                price = it.price ?: 0.0,
+                currency = it.currency ?: "",
+                inStock = it.inStock ?: false,
+                imageUrl = it.imageUrl ?: ""
+            )
+        }
+    }
+
+    fun domainToEntity(macs: List<Product.Mac>): List<MacEntity> {
+        return macs.map {
+            MacEntity(
+                id = it.id,
+                name = it.name,
+                favourite = it.favourite,
+                shortDescription = it.shortDescription,
+                description = it.description,
+                price = it.price,
+                currency = it.currency,
+                inStock = it.inStock,
+                imageUrl = it.imageUrl
+            )
+        }
+    }
+
+    fun entityToDomain(entities: List<MacEntity>): List<Product.Mac> {
+        return entities.map {
+            Product.Mac(
+                id = it.id,
+                name = it.name,
+                favourite = it.favourite,
+                shortDescription = it.shortDescription,
+                description = it.description,
+                price = it.price,
+                currency = it.currency,
+                inStock = it.inStock,
+                imageUrl = it.imageUrl
+            )
+        }
+    }
+}

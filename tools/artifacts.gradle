@@ -1,0 +1,9 @@
+android.applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+
+        def appName = "Clean MVI"
+        def newAppName = "${appName}-${output.name}.apk"
+
+        output.outputFileName = new File(newAppName)
+    }
+}

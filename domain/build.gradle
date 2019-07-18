@@ -1,0 +1,16 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //RX
+    api "io.reactivex.rxjava2:rxkotlin:${versions.rxKotlin}"
+    api "io.reactivex.rxjava2:rxjava:${versions.rxjava}"
+}
+
+repositories {
+    mavenCentral()
+}

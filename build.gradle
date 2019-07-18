@@ -1,0 +1,74 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.3.31'
+    repositories {
+        google()
+        jcenter()
+
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:6.3.1"
+        classpath 'com.android.tools.build:gradle:3.4.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+//have no idea but adding this line makes
+//ktlintApplyToIdea & ktlintApplyToIdeaGlobally tasks available
+plugins {
+    id "org.jlleitschuh.gradle.ktlint" version "6.3.1"
+}
+
+ext.ReporterType = org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+        maven {
+            url 'https://maven.google.com/'
+        }
+
+        maven { url "https://jitpack.io" }
+    }
+}
+
+subprojects {
+    apply from: "$project.rootDir/tools/script-ktlint.gradle"
+}
+
+ext.versions = [
+        'rxjava'                : '2.2.4',
+        'room'                  : '2.1.0',
+        'koin'                  : '1.0.2',
+        'shapeOfView'           : '1.4.1',
+        'supportLibrary'        : '1.0.2',
+        'material'              : '1.0.0',
+        'rxKotlin'              : '2.1.0',
+        'rxAndroid'             : '2.1.1',
+        'retrofit'              : '2.2.0',
+        'gson'                  : '2.8.2',
+        'rxBinding'             : '2.2.0',
+        'mosby'                 : '3.1.1',
+        'mock_web_server'       : '3.12.1',
+        'constraintLayout'      : '1.1.3',
+        'loggingInterceptor'    : '3.10.0',
+        'timber'                : '4.7.1',
+        'junit'                 : '4.12',
+        'support_test_rules'    : '1.1.0-alpha4',
+        'support_test_runner'   : '1.1.0-alpha4',
+        'espresso_core'         : '3.1.0-alpha4',
+        'glide'                 : '4.9.0',
+        'epoxy'                 : '3.3.1',
+]
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

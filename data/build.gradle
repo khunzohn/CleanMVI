@@ -1,0 +1,77 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+apply from: "$project.rootDir/tools/script-lint.gradle"
+
+android {
+    compileSdkVersion 29
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":
+                                     "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            ext.alwaysUpdateBuildId = false
+            ext.enableCrashlytics = false
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "stage"
+
+    productFlavors {
+        uat {
+            buildConfigField "String", "BASE_URL", "\"https://uat.test.com\""
+            dimension "stage"
+        }
+
+        prod {
+            buildConfigField "String", "BASE_URL", "\"https://live.test.com\""
+            dimension "stage"
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':domain')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation 'junit:junit:4.12'
+
+    implementation "com.squareup.okhttp3:mockwebserver:${versions.mock_web_server}"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    api "androidx.room:room-runtime:${versions.room}"
+    api "androidx.room:room-rxjava2:${versions.room}"
+    kapt "androidx.room:room-compiler:${versions.room}"
+
+    //Gson
+    api "com.google.code.gson:gson:${versions.gson}"
+
+    //Retrofit
+    api "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.loggingInterceptor}"
+}

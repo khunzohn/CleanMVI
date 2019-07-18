@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: "$project.rootDir/tools/script-lint.gradle"
+apply from: "$project.rootDir/tools/artifacts.gradle"
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.khunzohn.cleanmvi"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            ext.alwaysUpdateBuildId = false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard/proguard-rules-debug.pro'
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles fileTree('proguard/libraries').asList().toArray()
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard/proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "stage"
+
+    productFlavors {
+        uat {
+            dimension "stage"
+            versionNameSuffix "-uat"
+            applicationIdSuffix '.uat'
+        }
+
+        prod {
+            dimension "stage"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation project(':data')
+    implementation project(':domain')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //support
+    implementation "com.google.android.material:material:${versions.material}"
+    implementation "androidx.appcompat:appcompat:${versions.supportLibrary}"
+    implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
+
+    //custom view
+    implementation "com.github.florent37:shapeofview:${versions.shapeOfView}"
+
+    //testing
+    testImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "androidx.test:rules:${versions.support_test_rules}"
+    androidTestImplementation "androidx.test:runner:${versions.support_test_runner}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.espresso_core}"
+
+
+    implementation "com.jakewharton.timber:timber:${versions.timber}"
+
+    //Rx
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
+    implementation "com.jakewharton.rxbinding2:rxbinding:${versions.rxBinding}"
+    implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:${versions.rxBinding}"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:${versions.glide}"
+    kapt "com.github.bumptech.glide:compiler:${versions.glide}"
+
+    //DI
+    implementation "org.koin:koin-android-scope:${versions.koin}"
+
+
+    //mvi
+    implementation "com.hannesdorfmann.mosby3:mvi:${versions.mosby}"
+
+
+    implementation "com.airbnb.android:epoxy:${versions.epoxy}"
+    kapt "com.airbnb.android:epoxy-processor:${versions.epoxy}"
+}

@@ -10,7 +10,7 @@ import io.reactivex.Observable
 @Dao
 interface IPhoneDao {
 
-    @Query("SELECT * FROM i_phones")
+    @Query("SELECT * FROM i_phones ORDER BY price")
     fun stream(): Observable<List<IPhoneEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

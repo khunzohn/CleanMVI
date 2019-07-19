@@ -10,7 +10,7 @@ import io.reactivex.Observable
 @Dao
 interface MacDao {
 
-    @Query("SELECT * FROM macs")
+    @Query("SELECT * FROM macs ORDER BY price")
     fun stream(): Observable<List<MacEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

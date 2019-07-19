@@ -41,7 +41,7 @@
                 android:paddingTop="4dp"
                 android:paddingEnd="24dp"
                 android:paddingBottom="4dp"
-                android:text="@string/in_stock_label"
+                android:text="@string/new_label"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 tools:ignore="MissingPrefix" />
@@ -76,7 +76,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/small_layout_padding"
-            tools:src="@drawable/ic_non_favorite_36dp" />
+            tools:src="@drawable/ic_favorite_inactive_36dp" />
     </RelativeLayout>
 
     <TextView

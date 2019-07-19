@@ -1,8 +1,8 @@
-package com.khunzohn.cleanmvi.feature.product
+package com.khunzohn.cleanmvi.feature.product.list
 
 import com.hannesdorfmann.mosby3.mvp.MvpView
 import com.khunzohn.domain.model.Product
-import com.khunzohn.domain.viewstate.product.ProductListViewState
+import com.khunzohn.domain.viewstate.product.list.ProductListViewState
 import io.reactivex.Observable
 
 interface ProductListView : MvpView{

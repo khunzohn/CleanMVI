@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.khunzohn.cleanmvi.R
-import com.khunzohn.cleanmvi.feature.product.ProductListActivity
+import com.khunzohn.cleanmvi.feature.product.list.ProductListActivity
 
 class MainActivity : AppCompatActivity() {
 

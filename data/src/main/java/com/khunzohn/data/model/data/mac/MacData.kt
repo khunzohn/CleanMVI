@@ -29,5 +29,8 @@ data class MacData(
     val favourite: Boolean? = null,
 
     @field:SerializedName("in_stock")
-    val inStock: Boolean? = null
+    val inStock: Boolean? = null,
+
+    @field:SerializedName("new")
+    val new: Boolean? = null
 )

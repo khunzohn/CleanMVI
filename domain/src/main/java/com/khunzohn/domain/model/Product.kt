@@ -11,7 +11,8 @@ sealed class Product {
         val description: String,
         val price: Double,
         val currency: String,
-        val inStock: Boolean
+        val inStock: Boolean,
+        val new: Boolean
     ) : Product()
 
     data class Mac(
@@ -23,6 +24,7 @@ sealed class Product {
         val description: String,
         val price: Double,
         val currency: String,
-        val inStock: Boolean
+        val inStock: Boolean,
+        val new: Boolean
     ) : Product()
 }

@@ -21,7 +21,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".feature.product.ProductListActivity" />
+        <activity android:name=".feature.product.list.ProductListActivity" />
+
+        <activity
+            android:name=".feature.product.catalogue.ProductCatalogueActivity"
+            android:parentActivityName=".feature.product.list.ProductListActivity" />
     </application>
 
 </manifest>

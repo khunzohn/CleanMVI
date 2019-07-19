@@ -17,7 +17,8 @@ class IPhoneMapper {
                 price = it.price ?: 0.0,
                 currency = it.currency ?: "",
                 inStock = it.inStock ?: false,
-                imageUrl = it.imageUrl ?: ""
+                imageUrl = it.imageUrl ?: "",
+                new = it.new?:false
             )
         }
     }
@@ -33,7 +34,8 @@ class IPhoneMapper {
                 price = it.price,
                 currency = it.currency,
                 inStock = it.inStock,
-                imageUrl = it.imageUrl
+                imageUrl = it.imageUrl,
+                isNew = it.new
             )
         }
     }
@@ -49,7 +51,8 @@ class IPhoneMapper {
                 price = it.price,
                 currency = it.currency,
                 inStock = it.inStock,
-                imageUrl = it.imageUrl
+                imageUrl = it.imageUrl,
+                new = it.isNew
             )
         }
     }

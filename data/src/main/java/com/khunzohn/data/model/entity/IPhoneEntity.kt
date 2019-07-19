@@ -26,6 +26,9 @@ data class IPhoneEntity(
 
     val currency: String,
 
+    @ColumnInfo(name = "is_new")
+    val isNew: Boolean,
+
     @ColumnInfo(name = "in_stock")
     val inStock: Boolean
 )

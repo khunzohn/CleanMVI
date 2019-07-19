@@ -1,4 +1,4 @@
-package com.khunzohn.cleanmvi.feature.model
+package com.khunzohn.cleanmvi.feature.product.model
 
 import android.content.Context
 import android.view.View
@@ -32,7 +32,7 @@ abstract class ProductModel : EpoxyModelWithHolder<ProductModel.Holder>() {
         var favourite = false
         var shortDescription = ""
         var price = 0.0
-        var inStock = false
+        var new = false
 
         if (product is Product.Mac) {
             name = product.name
@@ -40,14 +40,14 @@ abstract class ProductModel : EpoxyModelWithHolder<ProductModel.Holder>() {
             imageUrl = product.imageUrl
             shortDescription = product.shortDescription
             price = product.price
-            inStock = product.inStock
+            new = product.new
         } else if (product is Product.IPhone) {
             name = product.name
             imageUrl = product.imageUrl
             favourite = product.favourite
             shortDescription = product.shortDescription
             price = product.price
-            inStock = product.inStock
+            new = product.new
         }
 
         holder.context.run {
@@ -61,11 +61,11 @@ abstract class ProductModel : EpoxyModelWithHolder<ProductModel.Holder>() {
                 .into(holder.ivProduct)
 
         holder.ivFavourite.setOnClickListener { updateFavouriteAction(product) }
-        holder.vgTag.visibility = if (inStock) View.VISIBLE else View.GONE
+        holder.vgTag.visibility = if (new) View.VISIBLE else View.GONE
         holder.tvName.text = name
         holder.tvDescription.text = shortDescription
-        holder.ivFavourite.setImageResource(if (favourite) R.drawable.ic_favorite_36dp
-        else R.drawable.ic_non_favorite_36dp)
+        holder.ivFavourite.setImageResource(if (favourite) R.drawable.ic_favorite_active_36dp
+        else R.drawable.ic_favorite_inactive_36dp)
         holder.tvPrice.text = price.toString()
     }
 

@@ -27,5 +27,8 @@ data class MacEntity(
     val currency: String,
 
     @ColumnInfo(name = "in_stock")
-    val inStock: Boolean
+    val inStock: Boolean,
+
+    @ColumnInfo(name = "is_new")
+    val isNew: Boolean
 )

@@ -9,7 +9,7 @@ import com.khunzohn.data.model.entity.MacEntity
 
 @Database(
     entities = [IPhoneEntity::class, MacEntity::class],
-    version = 1, exportSchema = true
+    version = 2, exportSchema = true
 )
 abstract class CleanDatabase : RoomDatabase() {
 

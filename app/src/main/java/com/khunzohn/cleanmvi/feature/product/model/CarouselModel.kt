@@ -1,4 +1,4 @@
-package com.khunzohn.cleanmvi.feature.model
+package com.khunzohn.cleanmvi.feature.product.model
 
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager

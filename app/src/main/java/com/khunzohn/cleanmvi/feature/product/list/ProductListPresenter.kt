@@ -1,9 +1,9 @@
-package com.khunzohn.cleanmvi.feature.product
+package com.khunzohn.cleanmvi.feature.product.list
 
 import com.hannesdorfmann.mosby3.mvi.MviBasePresenter
 import com.khunzohn.domain.interactor.ProductListInteractor
 import com.khunzohn.domain.model.Product
-import com.khunzohn.domain.viewstate.product.ProductListViewState
+import com.khunzohn.domain.viewstate.product.list.ProductListViewState
 import io.reactivex.Observable
 
 class ProductListPresenter constructor(

@@ -8,6 +8,7 @@
     "description": "The most loved Mac is about to make you fall in love all over again. Available in silver, space gray, and gold, the new thinner and lighter MacBook Air features a brilliant Retina display with True Tone technology, Touch ID, the latest-generation keyboard, and a Force Touch trackpad. The iconic wedge is created from 100 percent recycled aluminum, making it the greenest Mac ever.1 And with all-day battery life, MacBook Air is your perfectly portable, do-it-all notebook.",
     "price": 1099.00,
     "currency": "USD",
+    "new": false,
     "in_stock": true
   },
   {
@@ -19,6 +20,7 @@
     "description": "The most loved Mac is about to make you fall in love all over again. Available in silver, space gray, and gold, the new thinner and lighter MacBook Air features a brilliant Retina display with True Tone technology, Touch ID, the latest-generation keyboard, and a Force Touch trackpad. The iconic wedge is created from 100 percent recycled aluminum, making it the greenest Mac ever.1 And with all-day battery life, MacBook Air is your perfectly portable, do-it-all notebook.",
     "price": 1299.00,
     "currency": "USD",
+    "new": true,
     "in_stock": true
   },
   {
@@ -30,6 +32,7 @@
     "description": "MacBook Pro elevates the notebook to a whole new level of performance and portability. Wherever your ideas take you, you’ll get there faster than ever with high‑performance processors and memory, advanced graphics, blazing‑fast storage, and more.",
     "price": 1299.00,
     "currency": "USD",
+    "new": false,
     "in_stock": true
   },
   {
@@ -41,6 +44,7 @@
     "description": "MacBook Pro elevates the notebook to a whole new level of performance and portability. Wherever your ideas take you, you’ll get there faster than ever with high‑performance processors and memory, advanced graphics, blazing‑fast storage, and more.",
     "price": 1499.00,
     "currency": "USD",
+    "new": false,
     "in_stock": true
   },
   {
@@ -52,6 +56,7 @@
     "description": "MacBook Pro elevates the notebook to a whole new level of performance and portability. Wherever your ideas take you, you’ll get there faster than ever with high‑performance processors and memory, advanced graphics, blazing‑fast storage, and more.",
     "price": 1799.00,
     "currency": "USD",
+    "new": false,
     "in_stock": true
   },
   {
@@ -63,6 +68,7 @@
     "description": "MacBook Pro elevates the notebook to a whole new level of performance and portability. Wherever your ideas take you, you’ll get there faster than ever with high‑performance processors and memory, advanced graphics, blazing‑fast storage, and more.",
     "price": 2399.00,
     "currency": "USD",
+    "new": false,
     "in_stock": true
   },
   {
@@ -74,6 +80,7 @@
     "description": "MacBook Pro elevates the notebook to a whole new level of performance and portability. Wherever your ideas take you, you’ll get there faster than ever with high‑performance processors and memory, advanced graphics, blazing‑fast storage, and more.",
     "price": 2799.00,
     "currency": "USD",
+    "new": false,
     "in_stock": true
   },
   {
@@ -85,6 +92,7 @@
     "description": "Available in stunning 4K or 5K, the Retina display shines beautifully on iMac. With one billion colors and 500 nits of brightness, graphics leap off the screen. Text is razor-sharp. Binge-worthy shows and blockbuster movies have never looked more amazing. Graphics and games dazzle in exquisite detail. It’s simply the best Mac Retina display yet.",
     "price": 1099.00,
     "currency": "USD",
+    "new": true,
     "in_stock": true
   },
   {
@@ -96,6 +104,7 @@
     "description": "Available in stunning 4K or 5K, the Retina display shines beautifully on iMac. With one billion colors and 500 nits of brightness, graphics leap off the screen. Text is razor-sharp. Binge-worthy shows and blockbuster movies have never looked more amazing. Graphics and games dazzle in exquisite detail. It’s simply the best Mac Retina display yet.",
     "price": 1299.00,
     "currency": "USD",
+    "new": true,
     "in_stock": true
   },
   {
@@ -107,6 +116,7 @@
     "description": "Available in stunning 4K or 5K, the Retina display shines beautifully on iMac. With one billion colors and 500 nits of brightness, graphics leap off the screen. Text is razor-sharp. Binge-worthy shows and blockbuster movies have never looked more amazing. Graphics and games dazzle in exquisite detail. It’s simply the best Mac Retina display yet.",
     "price": 1499.00,
     "currency": "USD",
+    "new": true,
     "in_stock": true
   },
   {
@@ -140,6 +150,7 @@
     "description": "MacBook Pro elevates the notebook to a whole new level of performance and portability. Wherever your ideas take you, you’ll get there faster than ever with high‑performance processors and memory, advanced graphics, blazing‑fast storage, and more.",
     "price": 1299.00,
     "currency": "USD",
+    "new": true,
     "in_stock": true
   },
   {
@@ -173,6 +184,7 @@
     "description": "MacBook Pro elevates the notebook to a whole new level of performance and portability. Wherever your ideas take you, you’ll get there faster than ever with high‑performance processors and memory, advanced graphics, blazing‑fast storage, and more.",
     "price": 2399.00,
     "currency": "USD",
+    "new": true,
     "in_stock": true
   },
   {
@@ -250,6 +262,7 @@
     "description": "MacBook Pro elevates the notebook to a whole new level of performance and portability. Wherever your ideas take you, you’ll get there faster than ever with high‑performance processors and memory, advanced graphics, blazing‑fast storage, and more.",
     "price": 1299.00,
     "currency": "USD",
+    "new": true,
     "in_stock": true
   },
   {
@@ -349,6 +362,7 @@
     "description": "The most loved Mac is about to make you fall in love all over again. Available in silver, space gray, and gold, the new thinner and lighter MacBook Air features a brilliant Retina display with True Tone technology, Touch ID, the latest-generation keyboard, and a Force Touch trackpad. The iconic wedge is created from 100 percent recycled aluminum, making it the greenest Mac ever.1 And with all-day battery life, MacBook Air is your perfectly portable, do-it-all notebook.",
     "price": 1299.00,
     "currency": "USD",
+    "new": true,
     "in_stock": true
   },
   {
@@ -404,6 +418,7 @@
     "description": "MacBook Pro elevates the notebook to a whole new level of performance and portability. Wherever your ideas take you, you’ll get there faster than ever with high‑performance processors and memory, advanced graphics, blazing‑fast storage, and more.",
     "price": 2799.00,
     "currency": "USD",
+    "new": true,
     "in_stock": true
   },
   {

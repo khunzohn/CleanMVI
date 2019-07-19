@@ -1,4 +1,4 @@
-package com.khunzohn.domain.viewstate.product
+package com.khunzohn.domain.viewstate.product.list
 
 import com.khunzohn.domain.model.Product
 

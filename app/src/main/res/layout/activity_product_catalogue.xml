@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        tools:title="iPhone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivFavourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/normal_layout_padding"
+            android:background="@drawable/background_grey_border"
+            android:padding="@dimen/small_layout_padding"
+            android:src="@drawable/ic_favorite_inactive_36dp" />
+
+        <ImageView
+            android:id="@+id/ivNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/normal_layout_padding"
+            android:layout_toEndOf="@+id/ivFavourite"
+            android:background="@drawable/background_grey_border"
+            android:padding="@dimen/small_layout_padding"
+            android:src="@drawable/ic_new_inactive_36dp" />
+
+
+        <TextView
+            android:id="@+id/tvSortOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/normal_layout_padding"
+            android:drawableEnd="@drawable/ic_filter_list_36dp"
+            android:drawablePadding="@dimen/small_layout_padding"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Price: Low to High" />
+    </RelativeLayout>
+
+    <com.airbnb.epoxy.EpoxyRecyclerView
+        android:id="@+id/rvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/small_layout_padding"
+        android:paddingEnd="@dimen/normal_layout_padding"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp" />
+</LinearLayout>

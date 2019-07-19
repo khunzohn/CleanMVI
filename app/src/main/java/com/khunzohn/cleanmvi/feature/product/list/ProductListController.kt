@@ -1,14 +1,15 @@
-package com.khunzohn.cleanmvi.feature.product
+package com.khunzohn.cleanmvi.feature.product.list
 
 import android.content.Context
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.TypedEpoxyController
 import com.airbnb.epoxy.carousel
 import com.khunzohn.cleanmvi.R
-import com.khunzohn.cleanmvi.feature.model.*
+import com.khunzohn.cleanmvi.feature.product.catalogue.ProductCatalogueActivity
+import com.khunzohn.cleanmvi.feature.product.model.*
 import com.khunzohn.cleanmvi.util.withModelsFrom
 import com.khunzohn.domain.model.Product
-import com.khunzohn.domain.viewstate.product.ProductListViewState
+import com.khunzohn.domain.viewstate.product.list.ProductListViewState
 import io.reactivex.subjects.PublishSubject
 
 class ProductListController constructor(
@@ -18,6 +19,7 @@ class ProductListController constructor(
     private val retryFetchMacsSubject = PublishSubject.create<Any>()
     private val retryFetchIPhonesSubject = PublishSubject.create<Any>()
     private val updateFavouriteSubject = PublishSubject.create<Product>()
+    private val seeAllSubject = PublishSubject.create<Int>()
 
     fun retryFetchMacsClicks() = retryFetchMacsSubject
 
@@ -25,9 +27,12 @@ class ProductListController constructor(
 
     fun updateFavouriteClicks() = updateFavouriteSubject
 
+    fun seeAllClicks() = seeAllSubject
+
     override fun buildModels(data: ProductListViewState) {
         sectionTitle {
             id("Macs")
+            seeAllAction { seeAllSubject.onNext(ProductCatalogueActivity.TYPE_MAC) }
             sectionTitle(context.getString(R.string.mac_section_title))
         }
 
@@ -82,6 +87,7 @@ class ProductListController constructor(
 
         sectionTitle {
             id("IPhones")
+            seeAllAction { seeAllSubject.onNext(ProductCatalogueActivity.TYPE_I_PHONE) }
             sectionTitle(context.getString(R.string.iphone_section_title))
         }
 

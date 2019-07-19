@@ -1,4 +1,4 @@
-package com.khunzohn.cleanmvi.feature.product
+package com.khunzohn.cleanmvi.feature.product.list
 
 import android.content.Context
 import android.content.Intent
@@ -7,12 +7,16 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hannesdorfmann.mosby3.mvi.MviActivity
 import com.khunzohn.cleanmvi.R
+import com.khunzohn.cleanmvi.feature.product.catalogue.ProductCatalogueActivity
 import com.khunzohn.domain.model.Product
-import com.khunzohn.domain.viewstate.product.ProductListViewState
+import com.khunzohn.domain.viewstate.product.list.ProductListViewState
 import io.reactivex.Observable
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_product_list.*
 import org.koin.android.ext.android.inject
+import java.util.concurrent.TimeUnit
 
 class ProductListActivity : MviActivity<ProductListView, ProductListPresenter>(), ProductListView {
 
@@ -22,6 +26,8 @@ class ProductListActivity : MviActivity<ProductListView, ProductListPresenter>()
             context.startActivity(intent)
         }
     }
+
+    private val compositeDisposable = CompositeDisposable()
 
     private val streamMacsSubject = PublishSubject.create<Any>()
     private val streamIPhonesSubject = PublishSubject.create<Any>()
@@ -39,6 +45,12 @@ class ProductListActivity : MviActivity<ProductListView, ProductListPresenter>()
         controller = ProductListController(this)
         rvContent.setController(controller)
         rvContent.layoutManager = LinearLayoutManager(this)
+
+        controller.seeAllClicks()
+            // prevent lunching multiple activity just in case a monkey plays with `see all` button
+            .debounce(300,TimeUnit.MILLISECONDS)
+            .subscribe { ProductCatalogueActivity.start(this, it) }
+            .addTo(compositeDisposable)
     }
 
     override fun onResume() {
